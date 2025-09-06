@@ -1,6 +1,6 @@
 ---
 title: "The making of the lollipop chart"
-author: "Add your name here"
+author: "Sana Pashankar"
 format: html
 editor: visual
 ---
@@ -41,3 +41,12 @@ mean_area_decade
 # Lollipop chart
 
 Recreate the lollipop chart from the slides.
+
+```{r}
+ggplot(mean_area_decade, aes(y = decade_built_cat, x = mean_area)) + 
+  geom_segment(aes(y = decade_built_cat, yend = decade_built_cat, x = 0, xend = mean_area)) + 
+  geom_point(size = 3) + 
+  labs(x = "Mean area (square feet)", 
+       y = "Decade built", 
+         title = "Mean area of houses in Duke Forest, by decade built")
+```
